@@ -1,4 +1,4 @@
-﻿using cakesdri_api.Interfaces;
+﻿using cakesdri_api.Interfaces.Repository;
 using cakesdri_api.Models;
 using Microsoft.EntityFrameworkCore;
 

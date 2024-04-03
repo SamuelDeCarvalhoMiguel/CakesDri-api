@@ -1,6 +1,8 @@
-using cakesdri_api.Interfaces;
+using cakesdri_api.Interfaces.Repository;
+using cakesdri_api.Interfaces.Service;
 using cakesdri_api.Models;
 using cakesdri_api.Repositories;
+using cakesdri_api.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -22,6 +24,7 @@ builder.Services.AddSwaggerGen();
 
 //Adicionando o escopo da interface
 builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
+builder.Services.AddScoped<IRecipeService, RecipeService>();
 
 var app = builder.Build();
 
