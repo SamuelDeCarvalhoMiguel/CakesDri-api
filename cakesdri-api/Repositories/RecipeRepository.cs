@@ -1,5 +1,6 @@
 ﻿using cakesdri_api.Interfaces;
 using cakesdri_api.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace cakesdri_api.Repositories
 {
@@ -14,26 +15,31 @@ namespace cakesdri_api.Repositories
 
     public void Insert(Recipe recipe)
     {
-      throw new NotImplementedException();
+      _context.Recipe.Add(recipe);
     }
     public void Update(Recipe recipe)
     {
-      throw new NotImplementedException();
+      _context.Entry(recipe).State = EntityState.Modified;
     }
 
-    public void Delete(int id)
+    public void Delete(Recipe recipe)
     {
-      throw new NotImplementedException();
+      _context.Recipe.Remove(recipe);
     }
 
-    public Task<Recipe> GetById(int id)
+    public async Task<Recipe?> GetById(int id)
     {
-      throw new NotImplementedException();
+      return await _context.Recipe.FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public Task<IEnumerable<Recipe>> GetAll()
+    public async Task<IEnumerable<Recipe?>> GetAll()
     {
-      throw new NotImplementedException();
+      return await _context.Recipe.ToListAsync();
+    }
+
+    public async Task<bool> SaveAllAsync()
+    {
+      return await _context.SaveChangesAsync() > 0;
     }
   }
 }

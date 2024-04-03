@@ -6,8 +6,9 @@ namespace cakesdri_api.Interfaces
   {
     void Insert(Recipe recipe);
     void Update(Recipe recipe);
-    void Delete(int id);
-    Task<Recipe> GetById(int id);
-    Task<IEnumerable<Recipe>> GetAll();
+    void Delete(Recipe recipe);
+    Task<Recipe?> GetById(int id);
+    Task<IEnumerable<Recipe?>> GetAll();
+    Task<bool> SaveAllAsync();
   } 
 }

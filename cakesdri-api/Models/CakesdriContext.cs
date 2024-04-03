@@ -11,13 +11,13 @@ public partial class CakesdriContext : DbContext
     {
     }
 
-    public virtual DbSet<Recipe> Recipes { get; set; }
+    public virtual DbSet<Recipe> Recipe { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Recipe>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Recipes__3213E83FA35F31CA");
+            entity.HasKey(e => e.Id).HasName("PK__Recipe__3213E83FA35F31CA");
         });
 
         OnModelCreatingPartial(modelBuilder);
