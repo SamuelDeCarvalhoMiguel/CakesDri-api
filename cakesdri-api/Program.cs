@@ -12,10 +12,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 IConfigurationRoot Configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 
+#region Database
 builder.Services.AddDbContext<CakesdriContext>(options =>
 {
   options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
 });
+#endregion
+
+#region Cors
+builder.Services.AddCors();
+#endregion
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -36,6 +42,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(cors =>
+{
+  cors.AllowAnyHeader();
+  cors.AllowAnyMethod();
+  cors.AllowAnyOrigin();
+});
 
 app.UseAuthorization();
 
