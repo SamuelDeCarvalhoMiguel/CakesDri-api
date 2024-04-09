@@ -10,5 +10,6 @@ namespace cakesdri_api.Interfaces.Service
     Task<Recipe?> GetById(int id);
     Task<IEnumerable<Recipe?>> GetAll();
     Task<bool> SaveAllAsync();
+    Task<string> UploadImage(IFormFile file);
   }
 }

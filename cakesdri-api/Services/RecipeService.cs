@@ -2,6 +2,7 @@
 using cakesdri_api.Interfaces.Service;
 using cakesdri_api.Models;
 using cakesdri_api.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace cakesdri_api.Services
 {
@@ -44,6 +45,24 @@ namespace cakesdri_api.Services
       return await _recipeRepository.SaveAllAsync();
     }
 
-   
+    public async Task<string> UploadImage(IFormFile? file)
+    {
+      if (file == null)
+        return "No file uploaded";
+
+      //Generate a unique filename or use the original filename
+      var fileName = file.FileName;
+
+      //Define the path to save the image
+      var filePath = Path.Combine("C:\\Users\\Sam\\source\\repos\\Meus projetos\\cakesdri-api\\Images", fileName);
+
+      //Save the image to the path
+      using (var stream = new FileStream(filePath, FileMode.Create))
+      {
+        await file.CopyToAsync(stream);
+      }
+
+      return filePath;
+    }
   }
 }

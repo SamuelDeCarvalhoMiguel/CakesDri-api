@@ -9,17 +9,17 @@ namespace cakesdri_api.Models;
 public partial class Recipe
 {
     [Key]
-    [Column("id")]
+    [Column("Id")]
     public int Id { get; set; }
 
     [Required]
-    [Column("title")]
+    [Column("Title")]
     [StringLength(255)]
     public string? Title { get; set; }
 
-    [Column("description")]
+    [Column("Description")]
     public string? Description { get; set; }
 
-    [Column("image")]
-    public byte[]? Image { get; set; }
+    [Column("ImageAdress")]
+    public string? ImageAdress { get; set; }
 }

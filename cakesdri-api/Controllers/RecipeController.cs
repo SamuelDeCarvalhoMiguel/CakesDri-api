@@ -30,5 +30,12 @@ namespace cakesdri_api.Controllers
          return Ok(recipe);
       return BadRequest("Ocorreu um erro ao salvar a receita.");
     }
+
+    [HttpPost("UploadImage")]
+    public async Task<IActionResult> UploadImage(IFormFile file)
+    { 
+      return Ok(await _recipeService.UploadImage(file));
+    }
+
   }
 }
