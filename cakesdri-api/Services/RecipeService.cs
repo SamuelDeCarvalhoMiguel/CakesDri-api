@@ -54,7 +54,7 @@ namespace cakesdri_api.Services
       var fileName = file.FileName;
 
       //Define the path to save the image
-      var filePath = Path.Combine("http://localhost:8080/BoloDeMorango.jpg", fileName);
+      var filePath = Path.Combine("/img/gallery/RecipeImage/", fileName);
 
       //Save the image to the path
       using (var stream = new FileStream(filePath, FileMode.Create))
