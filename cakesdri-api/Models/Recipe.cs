@@ -20,6 +20,6 @@ public partial class Recipe
     [Column("Description")]
     public string? Description { get; set; }
 
-    [Column("ImageAdress")]
-    public string? ImageAdress { get; set; }
+    [Column("ImageAddress")]
+    public string? ImageAddress { get; set; }
 }
