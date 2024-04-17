@@ -30,9 +30,9 @@ namespace cakesdri_api.Services
 
     }
 
-    public Task<Recipe?> GetById(int id)
+    public async Task<Recipe?> GetById(int id)
     {
-      throw new NotImplementedException();
+      return await _recipeRepository.GetById(id);
     }
 
     public async Task<IEnumerable<Recipe?>> GetAll()

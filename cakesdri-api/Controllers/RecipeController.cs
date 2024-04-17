@@ -22,6 +22,12 @@ namespace cakesdri_api.Controllers
       return Ok(await _recipeService.GetAll());
     }
 
+    [HttpGet("GetById/{id}")]
+    public async Task<ActionResult<IEnumerable<Recipe>>> GetById(int id)
+    {
+      return Ok(await _recipeService.GetById(id));
+    }
+
     [HttpPost("Insert")]
     public async Task<ActionResult> InsertRecipe(Recipe recipe)
     {
